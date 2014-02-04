@@ -217,6 +217,10 @@ typedef enum {
     
     [self offsetGameViewBy:rawOffset];
     
+    if (_interactive) {
+        rightPaddleView.center = CGPointMake(rightPaddleView.center.x, 2.0f*rawOffset+10.0f);
+    }
+    
     if(state == BOZPongRefreshControlStateIdle) {
         CGFloat ballAndPaddlesOffset = MIN(rawOffset / 2.0f, HALF_REFRESH_CONTROL_HEIGHT);
         
